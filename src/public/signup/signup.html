@@ -1,0 +1,46 @@
+<div>
+  <h2 class="text-center">SIGN UP</h2>
+  <form name="form" novalidate class="container">
+  	<input type="text" name="firstName" placeholder="First Name"
+  		ng-model="signUpCtrl.firstName"
+  		required  		
+  	>
+  	<span class="input-error" ng-if="form.firstName.$error.required && form.firstName.$touched">First name is required</span> 
+  	</br></br>
+  	<input type="text" name="lastName" placeholder="Last Name"
+  		ng-model="signUpCtrl.lastName"
+  		required  		
+  	>
+  	<span class="input-error" ng-if="form.lastName.$error.required && form.lastName.$touched">Last name is required</span>
+  	</br></br>
+  	<input type="email" name="email" placeholder="Email Address"
+  		ng-model="signUpCtrl.email"
+  		required  		
+  	>
+  	<span class="input-error" ng-if="form.email.$error.required && form.email.$touched">Email address is required</span>
+  	<span class="input-error" ng-if="form.email.$invalid && form.email.$touched">Must be a valid email address</span>
+  	</br></br>
+  	<input type="text" name="phone" placeholder="Phone (###-###-####)"
+  		ng-model="signUpCtrl.phone"
+  		required
+  		pattern="(\d{3})-(\d{3})-(\d{4})" 	
+  	>
+  	<span class="input-error" ng-if="form.phone.$error.required && form.phone.$touched">Phone number is required</span>
+  	<span class="input-error" ng-if="form.phone.$invalid && form.phone.$touched">Must be ###-###-####</span>
+  	</br></br>
+  	<input type="text" name="dish" placeholder="Favorite Dish"
+  		ng-model="signUpCtrl.dish"
+  		required 
+  	>
+  	<span class="input-error" ng-if="form.dish.$error.required && form.dish.$touched">Favorite dish is required</span>
+  	<span class="input-error" ng-if="signUpCtrl.error">No such menu number exists.</span>  	
+  	</br></br>
+  	<button
+  	style="color: #000000"
+  	ng-disabled="form.$invalid" 
+  	ng-click="signUpCtrl.submit()">Submit</button>
+
+  	<div class="input-success" ng-if="signUpCtrl.success">Your information has been saved.</div>  
+  </form>
+	
+</div>
